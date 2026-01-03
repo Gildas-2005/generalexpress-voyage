@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion | Général Express</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Général<span>Express</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="reservations.html">Réservations</a></li>
+                <li><a href="horaires.html">Horaires</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+            </ul>
+            <div class="header-right" id="nav-auth">
+                <a href="login.html" class="btn-login" id="nav-login-btn">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-page">
+        <div class="auth-container" id="auth-box">
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Se connecter</button>
+                <button class="tab-btn" onclick="switchTab('register')">S'inscrire</button>
+            </div>
+
+            <form id="loginForm" class="auth-form active">
+                <h2>Bon retour parmi nous</h2>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="login-email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="login-pass" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit" class="btn-auth">Connexion</button>
+            </form>
+
+            <form id="registerForm" class="auth-form">
+                <h2>Créer un compte</h2>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="reg-name" placeholder="Nom complet" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="reg-email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="reg-pass" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit" class="btn-auth">S'inscrire</button>
+            </form>
+        </div>
+
+        <div class="success-box" id="success-box" style="display: none;">
+            <i class="fas fa-check-circle"></i>
+            <h2 id="welcome-msg">Bienvenue !</h2>
+            <p>Vous êtes maintenant connecté à votre espace Général Express.</p>
+            <div class="user-actions">
+                <a href="reservations.html" class="btn-main">Réserver un bus</a>
+                <button onclick="logout()" class="btn-outline">Se déconnecter</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/login.js"></script>
+</body>
+</html>

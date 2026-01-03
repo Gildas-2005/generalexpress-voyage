@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservations | Général Express</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reservations.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Général<span>Express</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="reservations.html" class="active">Réservations</a></li>
+                <li><a href="horaires.html">Horaires</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="header-right" id="nav-auth">
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="res-page">
+        <section class="booking-filter">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label><i class="fas fa-map-marker-alt"></i> Départ</label>
+                    <select id="origin"><option>Yaoundé</option><option>Douala</option><option>Bafoussam</option></select>
+                </div>
+                <div class="filter-group">
+                    <label><i class="fas fa-location-arrow"></i> Arrivée</label>
+                    <select id="destination"><option>Douala</option><option>Yaoundé</option><option>Kribi</option></select>
+                </div>
+                <div class="filter-group">
+                    <label><i class="fas fa-calendar-alt"></i> Date</label>
+                    <input type="date" id="travelDate">
+                </div>
+                <button class="btn-find" onclick="searchBuses()">Rechercher</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div id="bus-results" class="results-grid">
+                <div class="info-msg">Veuillez sélectionner votre trajet pour voir les bus disponibles.</div>
+            </div>
+        </section>
+
+        <div id="ticketModal" class="modal">
+            <div class="ticket-box">
+                <span class="close" onclick="closeTicket()">&times;</span>
+                <div class="ticket-header">
+                    <h2>Votre Billet Digital</h2>
+                    <p>Général Express Voyages</p>
+                </div>
+                <div class="ticket-body">
+                    <div class="ticket-info">
+                        <p><strong>Passager :</strong> <span id="t-name">Gildas Ngoumkwe</span></p>
+                        <p><strong>Trajet :</strong> <span id="t-route">---</span></p>
+                        <p><strong>Siège :</strong> #14 (VIP)</p>
+                    </div>
+                    <div class="qr-zone">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BilletValide" alt="QR Code">
+                    </div>
+                </div>
+                <button class="btn-download" onclick="window.print()">Télécharger (PDF)</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/reservations.js"></script>
+</body>
+</html>

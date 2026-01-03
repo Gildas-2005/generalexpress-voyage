@@ -1,51 +1,51 @@
-const API_URL = "https://generalexpress-voyage-api.onrender.com/api/voyages";
+/**
+ * ARCHITECTE JS - ACCUEIL
+ * Gestion du chargement dynamique des voyages populaires
+ */
 
-async function fetchPopularTrips() {
+const API_ENDPOINT = "https://generalexpress-voyage-api.onrender.com/api/voyages";
+
+async function loadPopularDestinations() {
     const container = document.getElementById('popular-container');
-
+    
     try {
-        const response = await fetch(API_URL);
-        if (!response.ok) throw new Error("Erreur de connexion");
+        const response = await fetch(API_ENDPOINT);
+        if (!response.ok) throw new Error("Erreur de chargement");
 
         const data = await response.json();
         
-        // On filtre uniquement les trajets populaires (populaire = 1) et on en prend 4
-        const populaires = data.filter(trip => trip.populaire === 1).slice(0, 4);
+        // On filtre pour n'avoir que les 4 premiers populaires
+        const popularTrips = data.filter(trip => trip.populaire === 1).slice(0, 4);
 
-        if (populaires.length === 0) {
-            container.innerHTML = "<p>Aucun trajet populaire trouvé.</p>";
+        if (popularTrips.length === 0) {
+            container.innerHTML = "<p>Aucune destination disponible pour le moment.</p>";
             return;
         }
 
-        container.innerHTML = ""; // On vide le chargeur
-
-        populaires.forEach(v => {
-            container.innerHTML += `
-                <article class="travel-card">
-                    <img src="${v.image_url}" class="card-img" alt="${v.arrivee}">
-                    <div class="card-content">
-                        <h3>${v.depart} <i class="fas fa-arrow-right" style="font-size:0.8rem; color:#7ab596;"></i> ${v.arrivee}</h3>
-                        <p style="font-size:0.8rem; color:#888; margin-bottom:10px;"><i class="far fa-clock"></i> Départ: ${v.heure_depart.substring(0,5)}</p>
-                        <div class="card-footer">
-                            <span class="price">${v.prix_classique} FCFA</span>
-                            <a href="reservations.html" class="btn-details">Réserver <i class="fas fa-chevron-right"></i></a>
-                        </div>
+        container.innerHTML = popularTrips.map(v => `
+            <article class="dest-card">
+                <img src="${v.image_url}" alt="${v.arrivee}">
+                <div class="dest-body">
+                    <h3>${v.depart} - ${v.arrivee}</h3>
+                    <p style="color:#888; font-size:0.8rem; margin-bottom:15px;">Départ quotidien • Bus VIP</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-weight:800; color:#f37021;">${v.prix_classique} F</span>
+                        <a href="reservations.html" class="btn-reserve">Réserver</a>
                     </div>
-                </article>
-            `;
-        });
+                </div>
+            </article>
+        `).join('');
 
     } catch (error) {
-        console.error("API Error:", error);
+        console.error("API Offline:", error);
         container.innerHTML = `
-            <div class="loader-box">
-                <i class="fas fa-sync fa-spin"></i>
-                <p>Le serveur se réveille (Render)...<br>Affichage des trajets dans quelques secondes.</p>
+            <div style="grid-column: 1/-1; text-align:center; padding:40px;">
+                <i class="fas fa-sync fa-spin" style="font-size:2rem; color:#f37021; margin-bottom:15px;"></i>
+                <p>Connexion au terminal de voyage en cours...<br>Le serveur Render se réveille.</p>
             </div>`;
-        // Réessayer après 5 secondes car Render met du temps à démarrer
-        setTimeout(fetchPopularTrips, 5000);
+        // Tentative de reconnexion automatique
+        setTimeout(loadPopularDestinations, 5000);
     }
 }
 
-// Lancer la fonction au chargement
-document.addEventListener('DOMContentLoaded', fetchPopularTrips);
+document.addEventListener('DOMContentLoaded', loadPopularDestinations);

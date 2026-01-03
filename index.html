@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Général Express | Accueil & Histoire</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Général Express | Accueil</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/accueil.css">
 </head>
 <body>
 
@@ -17,80 +18,59 @@
                 <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="reservations.html">Réservations</a></li>
                 <li><a href="horaires.html">Horaires</a></li>
+                <li><a href="apropos.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="header-right">
-                <span class="app-promo"><i class="fas fa-mobile-alt"></i> Télécharger l'app</span>
                 <a href="login.html" class="btn-login">Login</a>
+                <span class="user-name"><i class="fas fa-user-circle"></i> Gildas Ngoumkwe</span>
             </div>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-overlay">
+            <div class="hero-content">
                 <h1>Réservez votre voyage en 3 clics</h1>
                 <p>Yaoundé ~ Douala ~ Bafoussam - Départs quotidiens</p>
                 
-                <form class="search-form">
+                <form class="search-container">
                     <div class="search-grid">
                         <select id="origin"><option value="">[Origine]</option></select>
                         <select id="destination"><option value="">Destination</option></select>
                         <input type="date">
                         <select id="passengers"><option value="1">Passagers</option></select>
                     </div>
-                    <div class="search-bottom">
+                    <div class="search-action">
                         <input type="text" placeholder="Réserver maintenant">
                         <button type="submit" class="btn-search">Rechercher</button>
                     </div>
                 </form>
 
-                <div class="stats-badges">
-                    <span class="badge-green">500+ voyages/semaine</span>
-                    <span class="badge-green">16 agences</span>
-                    <span class="badge-green">99% satisfaction</span>
+                <div class="stats-bar">
+                    <div class="stat-badge">500+ voyages/semaine</div>
+                    <div class="stat-badge">16 agences</div>
+                    <div class="stat-badge">99% satisfaction</div>
                 </div>
             </div>
         </section>
 
-        <section class="popular">
-            <h2 class="section-title">Destinations populaires</h2>
+        <section class="popular-section">
+            <h2 class="title-modern">Destinations populaires</h2>
             <div id="popular-container" class="destinations-grid">
                 </div>
         </section>
 
-        <section class="about-timeline">
-            <div class="container">
-                <h2 class="section-title">Notre Histoire</h2>
-                <p class="intro-text">Fondée en 1998, General Express Voyages est devenue l'une des principales sociétés de transport au Cameroun.</p>
-                
-                <div class="timeline">
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <span class="year">1998</span>
-                            <h3>Création</h3>
-                            <p>Fondation de General Express Voyages à Bafoussam.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <span class="year">2005</span>
-                            <h3>Expansion</h3>
-                            <p>Extension des services vers 13 villes du Cameroun.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <span class="year">2012</span>
-                            <h3>Modernisation</h3>
-                            <p>Renouvellement de la flotte et digitalisation.</p>
-                        </div>
-                    </div>
-                </div>
+        <section class="features">
+            <h2 class="title-modern">Pourquoi Général Express</h2>
+            <div class="features-grid">
+                <div class="feature-card"><i class="fas fa-check-circle"></i> <p>Bus climatisés 50 places</p></div>
+                <div class="feature-card"><i class="fas fa-wifi"></i> <p>WiFi gratuit + USB</p></div>
+                <div class="feature-card"><i class="fas fa-shield-alt"></i> <p>Assurance voyage incluse</p></div>
             </div>
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="assets/js/accueil.js"></script>
 </body>
 </html>

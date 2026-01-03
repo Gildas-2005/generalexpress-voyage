@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horaires des départs | Général Express</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/horaires.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Général<span>Express</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="reservations.html">Réservations</a></li>
+                <li><a href="horaires.html" class="active">Horaires</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="header-right">
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="schedule-page">
+        <section class="schedule-header">
+            <h1>Tableau des Départs</h1>
+            <p>Consultez les horaires de nos bus en temps réel pour toutes les destinations.</p>
+        </section>
+
+        <section class="table-container">
+            <div class="table-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="scheduleSearch" placeholder="Rechercher une destination..." onkeyup="filterSchedule()">
+                </div>
+                <div class="date-display" id="currentDate">-- / -- / ----</div>
+            </div>
+
+            <div class="responsive-table">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th>Départ</th>
+                            <th>Destination</th>
+                            <th>Heure</th>
+                            <th>Type</th>
+                            <th>Statut</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-body">
+                        <tr>
+                            <td colspan="6" class="loading-cell">Chargement des données...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/horaires.js"></script>
+</body>
+</html>

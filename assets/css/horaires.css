@@ -1,0 +1,99 @@
+.schedule-page { background: #f8fafc; padding-bottom: 50px; }
+
+.schedule-header {
+    background: #1a2a3a;
+    color: white;
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.table-container {
+    max-width: 1100px;
+    margin: -30px auto 0;
+    padding: 0 20px;
+}
+
+.table-controls {
+    background: white;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.search-box {
+    background: #f1f5f9;
+    padding: 10px 20px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    margin-left: 10px;
+    outline: none;
+    width: 100%;
+}
+
+.date-display { font-weight: 600; color: #7ab596; }
+
+/* TABLE STYLE */
+.responsive-table {
+    background: white;
+    border-radius: 0 0 15px 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.modern-table th {
+    background: #f8fafc;
+    padding: 20px;
+    color: #64748b;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modern-table td {
+    padding: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+/* STATUS BADGES */
+.status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.status.on-time { background: #ecfdf5; color: #10b981; } /* Vert */
+.status.boarding { background: #eff6ff; color: #3b82f6; } /* Bleu */
+.status.departed { background: #f1f5f9; color: #64748b; } /* Gris */
+
+.btn-book-small {
+    background: #f37021;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-book-small:hover { background: #1a2a3a; }
+
+.loading-cell { text-align: center; padding: 50px !important; color: #94a3b8; }

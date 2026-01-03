@@ -1,0 +1,48 @@
+.res-page { background: #f0f4f8; min-height: 100vh; padding-top: 20px; }
+
+/* FILTRE DE RECHERCHE */
+.booking-filter {
+    background: white;
+    padding: 30px;
+    margin: 0 5%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.filter-container { display: flex; gap: 20px; align-items: flex-end; }
+.filter-group { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.filter-group label { font-size: 0.8rem; font-weight: 700; color: #7ab596; }
+.filter-group select, .filter-group input { padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+
+.btn-find { background: #f37021; color: white; border: none; padding: 14px 30px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+
+/* CARTES DE BUS */
+.results-section { padding: 40px 5%; }
+.bus-card {
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 8px solid #7ab596;
+}
+
+.bus-card.vip { border-left-color: #f37021; }
+
+.bus-time { padding: 30px; background: #f8fafc; text-align: center; min-width: 150px; }
+.bus-time h2 { font-size: 1.5rem; color: #1a2a3a; }
+
+.bus-info { padding: 25px; flex: 1; }
+.bus-price { padding: 25px; text-align: right; min-width: 200px; border-left: 1px dashed #ddd; }
+
+.price-tag { display: block; font-size: 1.5rem; font-weight: 800; color: #1a2a3a; }
+.btn-select { background: #1a2a3a; color: white; border: none; padding: 10px 20px; border-radius: 8px; margin-top: 10px; cursor: pointer; }
+
+/* MODALE BILLET */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); }
+.ticket-box { background: white; width: 90%; max-width: 400px; margin: 50px auto; border-radius: 20px; overflow: hidden; position: relative; }
+.ticket-header { background: #7ab596; color: white; padding: 20px; text-align: center; }
+.ticket-body { padding: 30px; text-align: center; }
+.qr-zone img { width: 150px; margin-top: 20px; }
+.close { position: absolute; right: 20px; top: 10px; font-size: 30px; cursor: pointer; color: white; }
