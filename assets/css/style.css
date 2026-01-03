@@ -1,0 +1,44 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+/* NAVBAR */
+.main-header { padding: 15px 5%; background: white; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-size: 1.5rem; font-weight: 800; color: #7ab596; }
+.logo span { color: #f37021; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { text-decoration: none; color: #333; font-size: 0.9rem; }
+.nav-links a.active { color: #f37021; font-weight: 600; }
+.btn-login { background: #f37021; color: white; border: none; padding: 8px 25px; border-radius: 20px; font-weight: bold; cursor: pointer; }
+
+/* HERO */
+.hero { 
+    height: 80vh; 
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover; background-position: center;
+    display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+
+/* RECHERCHE */
+.search-box { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; width: 90%; max-width: 800px; margin-top: 20px; }
+.row-1, .row-2 { display: grid; gap: 10px; margin-bottom: 10px; }
+.row-1 { grid-template-columns: repeat(4, 1fr); }
+.row-2 { grid-template-columns: 3fr 1fr; }
+select, input { padding: 12px; border-radius: 8px; border: none; outline: none; }
+.btn-search { background: #f37021; color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 8px; }
+
+/* BADGES */
+.badges { display: flex; gap: 15px; margin-top: 25px; }
+.badge { background: #7ab596; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 0.8rem; }
+
+/* GRILLE DESTINATIONS */
+.popular { padding: 60px 5%; text-align: center; background: #f4f9f4; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+.card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: left; }
+.card img { width: 100%; height: 150px; object-fit: cover; }
+.card-content { padding: 15px; }
+.card-content h3 { font-size: 1rem; margin-bottom: 5px; color: #333; }
+
+/* FEATURES */
+.features { padding: 60px 5%; text-align: center; }
+.feat-grid { display: flex; justify-content: center; gap: 50px; margin-top: 30px; }
+.item i { color: #7ab596; font-size: 2rem; margin-bottom: 10px; }

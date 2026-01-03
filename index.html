@@ -4,73 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Général Express | Accueil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/accueil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="main-header">
         <nav class="navbar">
-            <a href="index.html" class="logo">Général<span>Express</span></a>
+            <div class="logo">Général<span>Express</span></div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="reservations.html">Réservations</a></li>
-                <li><a href="horaires.html">Horaires</a></li>
-                <li><a href="apropos.html">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="#">Réservations</a></li>
+                <li><a href="#">Horaires</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
-            <div class="header-right">
-                <a href="login.html" class="btn-login">Login</a>
-                <span class="user-name"><i class="fas fa-user-circle"></i> Gildas Ngoumkwe</span>
+            <div class="nav-right">
+                <button class="btn-login">Login</button>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Réservez votre voyage en 3 clics</h1>
-                <p>Yaoundé ~ Douala ~ Bafoussam - Départs quotidiens</p>
-                
-                <form class="search-container">
-                    <div class="search-grid">
-                        <select id="origin"><option value="">[Origine]</option></select>
-                        <select id="destination"><option value="">Destination</option></select>
-                        <input type="date">
-                        <select id="passengers"><option value="1">Passagers</option></select>
-                    </div>
-                    <div class="search-action">
-                        <input type="text" placeholder="Réserver maintenant">
-                        <button type="submit" class="btn-search">Rechercher</button>
-                    </div>
-                </form>
-
-                <div class="stats-bar">
-                    <div class="stat-badge">500+ voyages/semaine</div>
-                    <div class="stat-badge">16 agences</div>
-                    <div class="stat-badge">99% satisfaction</div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Réservez votre voyage en 3 clics</h1>
+            <p>Yaoundé ~ Douala ~ Bafoussam - Départs quotidiens</p>
+            
+            <div class="search-box">
+                <div class="row-1">
+                    <select><option>[Origine]</option></select>
+                    <select><option>Destination</option></select>
+                    <input type="date">
+                    <select><option>Passagers</option></select>
+                </div>
+                <div class="row-2">
+                    <input type="text" placeholder="Réserver maintenant">
+                    <button class="btn-search">Rechercher</button>
                 </div>
             </div>
-        </section>
 
-        <section class="popular-section">
-            <h2 class="title-modern">Destinations populaires</h2>
-            <div id="popular-container" class="destinations-grid">
-                </div>
-        </section>
-
-        <section class="features">
-            <h2 class="title-modern">Pourquoi Général Express</h2>
-            <div class="features-grid">
-                <div class="feature-card"><i class="fas fa-check-circle"></i> <p>Bus climatisés 50 places</p></div>
-                <div class="feature-card"><i class="fas fa-wifi"></i> <p>WiFi gratuit + USB</p></div>
-                <div class="feature-card"><i class="fas fa-shield-alt"></i> <p>Assurance voyage incluse</p></div>
+            <div class="badges">
+                <span class="badge">500+ voyages/semaine</span>
+                <span class="badge">16 agences</span>
+                <span class="badge">99% satisfaction</span>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <script src="assets/js/accueil.js"></script>
+    <section class="popular">
+        <h2>Destinations populaires</h2>
+        <div class="grid" id="popular-container">
+            </div>
+    </section>
+
+    <section class="features">
+        <h2>Pourquoi Général Express</h2>
+        <div class="feat-grid">
+            <div class="item"><i class="fas fa-check-circle"></i><p>Bus climatisés 50 places</p></div>
+            <div class="item"><i class="fas fa-wifi"></i><p>WiFi gratuit + USB</p></div>
+            <div class="item"><i class="fas fa-shield-alt"></i><p>Assurance voyage incluse</p></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
