@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Admin | Général Express</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px 10%; }
+        .stat-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid var(--gold); }
+        .stat-card i { font-size: 2.5rem; color: var(--dark); margin-bottom: 15px; }
+        .stat-card h3 { font-size: 2rem; margin: 10px 0; }
+        .admin-table { width: 80%; margin: 20px auto; background: white; border-radius: 10px; overflow: hidden; }
+    </style>
+</head>
+<body style="background: #f4f7f6;">
+    <header>
+        <a href="index.html" class="logo">ADMINISTRATION</a>
+        <nav><ul><li><a href="#" onclick="logout()">Déconnexion</a></li></ul></nav>
+    </header>
+
+    <div class="admin-grid">
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <p>Clients Inscrits</p>
+            <h3 id="stat-users">...</h3>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-bus"></i>
+            <p>Trajets Actifs</p>
+            <h3 id="stat-voyages">...</h3>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-check-circle"></i>
+            <p>État Serveur</p>
+            <h3 style="color: #27ae60; font-size: 1.2rem;">OPÉRATIONNEL</h3>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <button class="btn-login" style="padding: 15px 30px;">+ Ajouter un nouveau voyage</button>
+    </div>
+
+    <script>
+        // Sécurité : Si pas admin, retour à l'accueil
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user || user.role !== 'admin') {
+            window.location.href = 'index.html';
+        }
+
+        async function loadStats() {
+            const res = await fetch('https://votre-api.onrender.com/api/admin/stats');
+            const data = await res.json();
+            document.getElementById('stat-users').innerText = data.utilisateurs;
+            document.getElementById('stat-voyages').innerText = data.voyages;
+        }
+        loadStats();
+    </script>
+</body>
+</html>
