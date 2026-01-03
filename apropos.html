@@ -2,74 +2,104 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>À propos | Général Express</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>À propos | Général Express Voyage</title>
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/apropos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517210122415-b0c70b2a09bf?w=1600');
+            height: 40vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .content-section { padding: 80px 10%; display: flex; align-items: center; gap: 50px; }
+        .content-text { flex: 1; }
+        .content-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .content-image img { width: 100%; height: auto; display: block; }
+        
+        .stats-bar {
+            background: var(--dark);
+            color: var(--gold);
+            padding: 50px 10%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .stat-item h2 { font-size: 2.5rem; margin-bottom: 5px; }
+        .stat-item p { color: white; font-size: 0.9rem; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .content-section { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Général<span>Express</span></a>
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="reservations.html">Réservations</a></li>
-            <li class="nav-item"><a class="nav-link" href="horaires.html">Horaires</a></li>
-            <li class="nav-item"><a class="nav-link active" href="#">À propos</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+    <header>
+        <a href="index.html" class="logo">Général Express</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="reservations.html">Réservations</a></li>
+                <li><a href="horaires.html">Horaires</a></li>
+                <li><a href="apropos.html" style="color: var(--gold); font-weight: bold;">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="btn-login">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<section class="container apropos-section">
-    <h2 class="text-center mb-4">À propos de Général Express</h2>
+    <section class="about-hero">
+        <div>
+            <h1 style="font-size: 3rem;">Notre Histoire, Votre Voyage</h1>
+            <p style="font-size: 1.2rem; color: var(--gold);">L'excellence du transport interurbain depuis plus de 20 ans</p>
+        </div>
+    </section>
 
-    <div class="row align-items-center">
-        <div class="col-md-6">
-            <p>
-                <strong>Général Express Voyage</strong> est une agence de transport interurbain
-                basée au Cameroun, spécialisée dans les voyages par bus modernes,
-                confortables et sécurisés.
+    <section class="content-section">
+        <div class="content-text">
+            <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--dark);">Pourquoi choisir Général Express ?</h2>
+            <p style="line-height: 1.8; color: #555;">
+                Fondée avec la vision de transformer la mobilité au Cameroun, Général Express Voyage s'est imposée comme le leader du transport sécurisé. Nous ne transportons pas seulement des passagers, nous relions des familles, des entreprises et des rêves à travers tout le triangle national.
             </p>
-            <p>
-                Depuis plusieurs années, nous relions les grandes villes du pays
-                telles que Yaoundé, Douala, Bafoussam, Bamenda et bien d’autres,
-                avec des départs réguliers et un service de qualité.
-            </p>
-            <p>
-                Notre mission est de rendre le transport accessible, fiable et
-                confortable pour tous nos passagers.
+            <br>
+            <p style="line-height: 1.8; color: #555;">
+                Notre flotte de bus VIP et classiques est soumise à des contrôles techniques rigoureux pour garantir que chaque kilomètre parcouru soit synonyme de sérénité.
             </p>
         </div>
-
-        <div class="col-md-6">
-            <img src="assets/images/bus1.jpg" class="img-fluid rounded shadow">
+        <div class="content-image">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800" alt="Bus de luxe">
         </div>
-    </div>
+    </section>
 
-    <div class="row text-center mt-5">
-        <div class="col-md-4">
-            <h5>Notre Vision</h5>
-            <p>Être la référence du transport interurbain au Cameroun.</p>
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h2>50+</h2>
+            <p>Bus Modernes</p>
         </div>
-        <div class="col-md-4">
-            <h5>Notre Mission</h5>
-            <p>Offrir un service sécurisé, ponctuel et confortable.</p>
+        <div class="stat-item">
+            <h2>1M+</h2>
+            <p>Passagers par an</p>
         </div>
-        <div class="col-md-4">
-            <h5>Nos Valeurs</h5>
-            <p>Sécurité, ponctualité, satisfaction client.</p>
+        <div class="stat-item">
+            <h2>10+</h2>
+            <p>Agences au Cameroun</p>
         </div>
-    </div>
-</section>
+        <div class="stat-item">
+            <h2>24/7</h2>
+            <p>Assistance Client</p>
+        </div>
+    </section>
 
-<footer class="footer text-center">
-    <p>© 2026 Général Express Voyage</p>
-</footer>
+    <footer style="background: #111; color: white; padding: 40px; text-align: center;">
+        <p>&copy; 2026 Général Express Voyage. Tous droits réservés.</p>
+    </footer>
 
-<script src="assets/js/apropos.js"></script>
 </body>
 </html>
