@@ -3,78 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Général Express Voyage | Accueil</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Général Express | Voyagez en toute confiance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo">Général Express</a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="reservations.html">Réservations</a></li>
-                <li><a href="horaires.html">Horaires</a></li>
-                <li><a href="apropos.html">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html" class="btn-login">Connexion</a></li>
-            </ul>
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="assets/img/logo-general.png" alt="Logo Général Express" class="logo-img">
+            <span class="logo-text">Général <span>EXPRESS</span></span>
+        </div>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="reservations.html">Voyages</a>
+            <a href="horaires.html">Horaires</a>
+            <a href="login.html" class="btn-login-nav">Mon Compte</a>
         </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Voyagez avec Excellence</h1>
-            <p>Leader du transport interurbain au Cameroun</p>
-        </section>
-
-        <section class="search-container">
-            <select id="depart">
-                <option value="">Ville de départ</option>
-                <option value="douala">Douala</option>
-                <option value="yaounde">Yaoundé</option>
-                <option value="bafoussam">Bafoussam</option>
-            </select>
-            <select id="arrivee">
-                <option value="">Ville d'arrivée</option>
-                <option value="yaounde">Yaoundé</option>
-                <option value="douala">Douala</option>
-                <option value="bafoussam">Bafoussam</option>
-            </select>
-            <input type="date" id="date-voyage">
-            <button class="btn-search" onclick="rechercherVoyage()">Rechercher</button>
-        </section>
-
-        <section style="padding: 50px 5%; text-align: center;">
-            <h2 style="margin-bottom: 40px;">Destinations Populaires</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                
-                <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600" style="width: 100%; height: 200px; object-fit: cover;">
-                    <div style="padding: 20px;">
-                        <h3>Douala - Yaoundé</h3>
-                        <p>Départs toutes les heures. Bus climatisés.</p>
-                        <a href="reservations.html" style="color: var(--gold); font-weight: 700; text-decoration: none;">Réserver →</a>
-                    </div>
-                </div>
-
-                <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600" style="width: 100%; height: 200px; object-fit: cover;">
-                    <div style="padding: 20px;">
-                        <h3>Yaoundé - Bafoussam</h3>
-                        <p>Voyagez en toute sécurité et confort.</p>
-                        <a href="reservations.html" style="color: var(--gold); font-weight: 700; text-decoration: none;">Réserver →</a>
-                    </div>
-                </div>
-
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Le leader du transport au Cameroun</h1>
+            <p>Confort, Sécurité et Ponctualité sur toutes nos lignes.</p>
+            <div class="hero-btns">
+                <a href="reservations.html" class="btn-primary">Réserver un billet</a>
+                <a href="#populaires" class="btn-secondary">Nos lignes phares</a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <section class="popular-section" id="populaires">
+        <div class="section-title">
+            <h2>Liaisons les plus populaires</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div id="popular-container" class="voyages-grid">
+            <div class="loader">Chargement des trajets VIP...</div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 Général Express Voyage - Cameroun</p>
+        <p>&copy; 2026 Général Express S.A. - Tous droits réservés.</p>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/home.js"></script>
 </body>
 </html>
