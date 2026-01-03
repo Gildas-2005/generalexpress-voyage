@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos | Général Express</title>
+    <title>À Propos - Général Express</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -11,10 +11,10 @@
 
     <header class="navbar">
         <div class="logo">
-            <i class="fas fa-bus"></i> <span class="logo-text">Général<span>Express</span></span>
+            <i class="fas fa-bus"></i> <span>GénéralExpress</span>
         </div>
-        <nav id="nav-menu">
-            <ul>
+        <nav>
+            <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="reservations.html">Réservations</a></li>
                 <li><a href="horaires.html">Horaires</a></li>
@@ -22,58 +22,47 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <div class="hamburger" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
+        <div class="user-profile">
+            <i class="fas fa-user-circle"></i> <span>Gildas Ngoumkwe</span>
         </div>
     </header>
 
-    <main class="container">
-        <section class="about-intro">
-            <h1>Notre Histoire</h1>
+    <main class="content-wrapper">
+        <section class="intro-text">
             <p>Fondée en 1998, General Express Voyages est devenue l'une des principales sociétés de transport au Cameroun. Avec plus de 26 ans d'expérience, nous avons transporté des milliers de passagers en toute sécurité vers plus de 15 destinations.</p>
         </section>
 
-        <section class="timeline">
-            <div class="timeline-line"></div>
+        <div class="timeline-container">
+            <div class="main-line"></div>
 
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="year">1998</span>
+            <div class="timeline-block block-left">
+                <div class="card">
+                    <span class="date">1998</span>
                     <h3>Création</h3>
-                    <p>Fondation de General Express Voyages à Bafoussam, avec une vision claire : relier les villes du Cameroun avec confort.</p>
+                    <p>Fondation de General Express Voyages à Bafoussam</p>
                 </div>
+                <div class="dot"></div>
             </div>
 
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="year">2005</span>
+            <div class="timeline-block block-right">
+                <div class="dot"></div>
+                <div class="card">
+                    <span class="date">2005</span>
                     <h3>Expansion</h3>
-                    <p>Extension des services vers 13 villes du Cameroun, incluant les lignes directes Yaoundé-Douala.</p>
+                    <p>Extension des services vers 13 villes du Cameroun</p>
                 </div>
             </div>
 
-            <div class="timeline-item left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="year">2012</span>
+            <div class="timeline-block block-left">
+                <div class="card">
+                    <span class="date">2012</span>
                     <h3>Modernisation</h3>
-                    <p>Introduction des bus de luxe et mise en place des premiers services VIP pour une expérience premium.</p>
+                    <p>Mise en place des services VIP et renouvellement de la flotte</p>
                 </div>
+                <div class="dot"></div>
             </div>
-
-            <div class="timeline-item right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="year">2024</span>
-                    <h3>Ère Digitale</h3>
-                    <p>Lancement de la plateforme de réservation en ligne pour faciliter l'accès à nos services depuis n'importe où.</p>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
