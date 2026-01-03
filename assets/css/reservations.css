@@ -1,0 +1,39 @@
+.reservation-section {
+    padding-top: 120px;
+    padding-bottom: 60px;
+}
+
+.trip-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.trip-card:hover {
+    transform: translateY(-10px);
+}
+
+.trip-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.trip-body {
+    padding: 15px;
+}
+
+.prices span {
+    display: block;
+    color: #333;
+}
+
+.badge.vip {
+    position: absolute;
+    background: orange;
+    color: white;
+    padding: 5px 10px;
+    margin: 10px;
+}

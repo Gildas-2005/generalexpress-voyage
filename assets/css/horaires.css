@@ -1,0 +1,14 @@
+.horaires-section {
+    padding-top: 120px;
+    padding-bottom: 60px;
+}
+
+table th {
+    background-color: orange;
+    color: white;
+}
+
+table td, table th {
+    text-align: center;
+    vertical-align: middle;
+}

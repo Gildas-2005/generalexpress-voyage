@@ -1,0 +1,9 @@
+.apropos-section {
+    padding-top: 120px;
+    padding-bottom: 60px;
+}
+
+.apropos-section p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}

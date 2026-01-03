@@ -1,0 +1,78 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7f6;
+}
+
+.navbar {
+    background: rgba(0,0,0,0.8);
+}
+
+.navbar-brand span {
+    color: orange;
+}
+
+.hero-section {
+    height: 100vh;
+    background: url('../images/hero.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+    position: relative;
+    top: 25%;
+}
+
+.hero-content h1 span {
+    color: orange;
+}
+
+.search-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.btn-orange {
+    background: orange;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-orange:hover {
+    background: #e69500;
+}
+
+.stats span {
+    background: #2ecc71;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.destination-card {
+    transition: transform 0.3s;
+}
+
+.destination-card:hover {
+    transform: translateY(-8px);
+}
+
+.advantages {
+    background: #eaf3ec;
+    padding: 40px 0;
+    font-weight: bold;
+}
+
+.footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+}

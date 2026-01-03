@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Réservations | Général Express</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/reservations.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Général<span>Express</span></a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Réservations</a></li>
+                <li class="nav-item"><a class="nav-link" href="horaires.html">Horaires</a></li>
+                <li class="nav-item"><a class="nav-link" href="apropos.html">À propos</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="container reservation-section">
+    <h2 class="text-center mb-4">Trajets disponibles</h2>
+
+    <div class="row g-4">
+
+        <!-- CARD -->
+        <div class="col-md-4">
+            <div class="trip-card">
+                <span class="badge vip">CLASSIQUE / VIP</span>
+                <img src="assets/images/bus1.jpg">
+                <div class="trip-body">
+                    <h5>Biyem-Assi → Bafoussam</h5>
+                    <p>Durée : 5h</p>
+                    <p>Départ : 22h / 23h</p>
+                    <div class="prices">
+                        <span>Classique : <strong>2 500 FCFA</strong></span>
+                        <span>VIP : <strong>5 000 FCFA</strong></span>
+                    </div>
+                    <button class="btn btn-orange w-100 mt-2">Réserver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD -->
+        <div class="col-md-4">
+            <div class="trip-card">
+                <span class="badge vip">CLASSIQUE / VIP</span>
+                <img src="assets/images/bus2.jpg">
+                <div class="trip-body">
+                    <h5>Biyem-Assi → Mbouda</h5>
+                    <p>Durée : 5h30</p>
+                    <p>Départ : 22h</p>
+                    <div class="prices">
+                        <span>Classique : <strong>3 500 FCFA</strong></span>
+                        <span>VIP : <strong>7 500 FCFA</strong></span>
+                    </div>
+                    <button class="btn btn-orange w-100 mt-2">Réserver</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD -->
+        <div class="col-md-4">
+            <div class="trip-card">
+                <span class="badge vip">CLASSIQUE / VIP</span>
+                <img src="assets/images/bus1.jpg">
+                <div class="trip-body">
+                    <h5>Biyem-Assi → Dschang</h5>
+                    <p>Durée : 6h</p>
+                    <p>Départ : 22h</p>
+                    <div class="prices">
+                        <span>Classique : <strong>2 500 FCFA</strong></span>
+                        <span>VIP : <strong>5 000 FCFA</strong></span>
+                    </div>
+                    <button class="btn btn-orange w-100 mt-2">Réserver</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer text-center">
+    <p>© 2026 Général Express Voyage</p>
+</footer>
+
+<script src="assets/js/reservations.js"></script>
+</body>
+</html>
