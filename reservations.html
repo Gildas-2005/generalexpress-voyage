@@ -2,96 +2,58 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Réservations | Général Express</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Réservations Premium | Général Express</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/reservations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">Général<span>Express</span></a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link active" href="#">Réservations</a></li>
-                <li class="nav-item"><a class="nav-link" href="horaires.html">Horaires</a></li>
-                <li class="nav-item"><a class="nav-link" href="apropos.html">À propos</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    <header>
+        <a href="index.html" class="logo">Général Express</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="reservations.html" style="color: var(--gold);">Réservations</a></li>
+                <li><a href="horaires.html">Horaires</a></li>
+                <li><a href="apropos.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="btn-login">Connexion</a></li>
             </ul>
+        </nav>
+    </header>
+
+    <section class="res-hero">
+        <h1>Réservez votre prochain voyage</h1>
+        <p>Choisissez parmi nos meilleurs trajets au Cameroun</p>
+    </section>
+
+    <div class="container">
+        <div class="filter-bar">
+            <span><i class="fas fa-filter"></i> Filtrer par :</span>
+            <select id="filter-class"><option>Toutes les classes</option><option>VIP</option><option>Classique</option></select>
+        </div>
+
+        <div id="voyages-list" class="voyages-grid">
+            <div class="voyage-card">
+                <div class="voyage-badge">Plus Populaire</div>
+                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800" alt="Bus VIP">
+                <div class="voyage-content">
+                    <div class="voyage-header">
+                        <h3>Douala <i class="fas fa-arrow-right"></i> Yaoundé</h3>
+                        <span class="price">6 000 FCFA</span>
+                    </div>
+                    <div class="voyage-details">
+                        <p><i class="fas fa-bus"></i> Classe VIP • Climatisation</p>
+                        <p><i class="fas fa-clock"></i> Départs : 05h00, 07h00, 12h00</p>
+                    </div>
+                    <button class="btn-book" onclick="ouvrirReservation()">Réserver mon siège</button>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
 
-<section class="container reservation-section">
-    <h2 class="text-center mb-4">Trajets disponibles</h2>
-
-    <div class="row g-4">
-
-        <!-- CARD -->
-        <div class="col-md-4">
-            <div class="trip-card">
-                <span class="badge vip">CLASSIQUE / VIP</span>
-                <img src="assets/images/bus1.jpg">
-                <div class="trip-body">
-                    <h5>Biyem-Assi → Bafoussam</h5>
-                    <p>Durée : 5h</p>
-                    <p>Départ : 22h / 23h</p>
-                    <div class="prices">
-                        <span>Classique : <strong>2 500 FCFA</strong></span>
-                        <span>VIP : <strong>5 000 FCFA</strong></span>
-                    </div>
-                    <button class="btn btn-orange w-100 mt-2">Réserver</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD -->
-        <div class="col-md-4">
-            <div class="trip-card">
-                <span class="badge vip">CLASSIQUE / VIP</span>
-                <img src="assets/images/bus2.jpg">
-                <div class="trip-body">
-                    <h5>Biyem-Assi → Mbouda</h5>
-                    <p>Durée : 5h30</p>
-                    <p>Départ : 22h</p>
-                    <div class="prices">
-                        <span>Classique : <strong>3 500 FCFA</strong></span>
-                        <span>VIP : <strong>7 500 FCFA</strong></span>
-                    </div>
-                    <button class="btn btn-orange w-100 mt-2">Réserver</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- CARD -->
-        <div class="col-md-4">
-            <div class="trip-card">
-                <span class="badge vip">CLASSIQUE / VIP</span>
-                <img src="assets/images/bus1.jpg">
-                <div class="trip-body">
-                    <h5>Biyem-Assi → Dschang</h5>
-                    <p>Durée : 6h</p>
-                    <p>Départ : 22h</p>
-                    <div class="prices">
-                        <span>Classique : <strong>2 500 FCFA</strong></span>
-                        <span>VIP : <strong>5 000 FCFA</strong></span>
-                    </div>
-                    <button class="btn btn-orange w-100 mt-2">Réserver</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<footer class="footer text-center">
-    <p>© 2026 Général Express Voyage</p>
-</footer>
-
-<script src="assets/js/reservations.js"></script>
+    <script src="assets/js/reservations.js"></script>
 </body>
 </html>
