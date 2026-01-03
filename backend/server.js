@@ -21,9 +21,13 @@ app.get('/status', (req, res) => {
 // On sépare la logique pour pouvoir ajouter 1000 fonctionnalités sans désordre
 const authRoutes = require('./routes/auth.routes');
 const voyagesRoutes = require('./routes/voyages.routes');
-
 app.use('/api/auth', authRoutes);
 app.use('/api/voyages', voyagesRoutes);
+
+const initDatabase = require('./models/init.model');
+initDatabase(); // Se lance automatiquement au démarrage sur Render
+
+
 
 // --- GESTION DES ERREURS (Le côté pro) ---
 // Si une route n'existe pas, on renvoie une erreur propre au lieu d'un crash
