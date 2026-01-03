@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réservations Premium | Général Express</title>
+    <title>Réservations VIP | Général Express</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/reservations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
-                <li><a href="reservations.html" style="color: var(--gold);">Réservations</a></li>
+                <li><a href="reservations.html" style="color: var(--gold); border-bottom: 2px solid var(--gold);">Réservations</a></li>
                 <li><a href="horaires.html">Horaires</a></li>
                 <li><a href="apropos.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -25,31 +25,32 @@
     </header>
 
     <section class="res-hero">
-        <h1>Réservez votre prochain voyage</h1>
-        <p>Choisissez parmi nos meilleurs trajets au Cameroun</p>
+        <div class="hero-overlay">
+            <h1>Destinations Premium</h1>
+            <p>Le confort du voyage moderne au Cameroun</p>
+        </div>
     </section>
 
     <div class="container">
         <div class="filter-bar">
-            <span><i class="fas fa-filter"></i> Filtrer par :</span>
-            <select id="filter-class"><option>Toutes les classes</option><option>VIP</option><option>Classique</option></select>
+            <div class="filter-group">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Chercher une ville..." onkeyup="filtrerVoyages()">
+            </div>
+            <div class="filter-group">
+                <i class="fas fa-sort-amount-down"></i>
+                <select id="classFilter" onchange="filtrerVoyages()">
+                    <option value="all">Toutes les classes</option>
+                    <option value="VIP">VIP</option>
+                    <option value="Classique">Classique</option>
+                </select>
+            </div>
         </div>
 
         <div id="voyages-list" class="voyages-grid">
-            <div class="voyage-card">
-                <div class="voyage-badge">Plus Populaire</div>
-                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800" alt="Bus VIP">
-                <div class="voyage-content">
-                    <div class="voyage-header">
-                        <h3>Douala <i class="fas fa-arrow-right"></i> Yaoundé</h3>
-                        <span class="price">6 000 FCFA</span>
-                    </div>
-                    <div class="voyage-details">
-                        <p><i class="fas fa-bus"></i> Classe VIP • Climatisation</p>
-                        <p><i class="fas fa-clock"></i> Départs : 05h00, 07h00, 12h00</p>
-                    </div>
-                    <button class="btn-book" onclick="ouvrirReservation()">Réserver mon siège</button>
-                </div>
+            <div class="loader-container">
+                <div class="spinner"></div>
+                <p>Synchronisation avec la base de données Aiven...</p>
             </div>
         </div>
     </div>
