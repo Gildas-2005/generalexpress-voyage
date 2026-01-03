@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Général Express | Excellence & Sécurité</title>
+    <title>Général Express | Accueil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -25,44 +26,38 @@
             <div class="user-area">
                 <a href="login.html" class="btn-login"><i class="far fa-user-circle"></i> Connexion</a>
             </div>
-            <div class="hamburger"><i class="fas fa-bars"></i></div>
         </nav>
     </header>
 
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Réservez votre voyage en 3 clics</h1>
-                <p>Le réseau de transport n°1 au Cameroun : Yaoundé, Douala, Bafoussam.</p>
+                <h1>Voyagez en toute sérénité</h1>
+                <p>Découvrez le confort de nos bus VIP à travers tout le Cameroun.</p>
                 
-                <form class="search-bar" id="quick-search">
+                <div class="search-bar">
                     <div class="input-group">
                         <i class="fas fa-map-marker-alt"></i>
-                        <select id="origin"><option value="">Départ</option></select>
+                        <select id="origin"><option>Ville de départ</option></select>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-location-arrow"></i>
-                        <select id="destination"><option value="">Destination</option></select>
+                        <select id="destination"><option>Ville d'arrivée</option></select>
                     </div>
-                    <div class="input-group">
-                        <i class="fas fa-calendar-alt"></i>
-                        <input type="date">
-                    </div>
-                    <button type="submit" class="btn-search">Rechercher</button>
-                </form>
+                    <button class="btn-search">Trouver un bus</button>
+                </div>
             </div>
         </section>
 
-        <section class="quick-stats">
-            <div class="stat-item"><span class="count">500+</span><p>Voyages / semaine</p></div>
-            <div class="stat-item"><span class="count">16</span><p>Agences</p></div>
-            <div class="stat-item"><span class="count">99%</span><p>Satisfaction</p></div>
-        </section>
-
-        <section class="popular">
-            <h2 class="section-title">Destinations populaires</h2>
-            <div class="popular-grid" id="popular-container">
-                <div class="loader-placeholder">Chargement des meilleures offres...</div>
+        <section class="popular-section">
+            <div class="container">
+                <h2 class="section-title">Destinations populaires</h2>
+                <div id="popular-container" class="popular-grid">
+                    <div class="loader-box">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Chargement des offres en cours...</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
