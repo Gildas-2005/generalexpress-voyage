@@ -1,17 +1,16 @@
 const mysql = require('mysql2');
 
-/**
- * Configuration de la connexion à la base de données
- * Utilise la variable d'environnement DATABASE_URL fournie par Render/Aiven
- */
-const dbUrl = process.env.DATABASE_URL;
+// On utilise l'URL que vous avez mise dans Render
+const pool = mysql.createPool(process.env.DATABASE_URL + "?ssl-mode=REQUIRED");
 
-const pool = mysql.createPool(dbUrl ? dbUrl : {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'general_express_local' // Nom pour votre usage local
+// Test de connexion immédiat au démarrage
+pool.getConnection((err, connection) => {
+    if (err) {
+        console.error("❌ Erreur de connexion Aiven :", err.message);
+    } else {
+        console.log("✅ Connecté avec succès à la base de données Aiven (Cameroun Sector)");
+        connection.release();
+    }
 });
 
-// On exporte le pool en version "promise" pour pouvoir utiliser async/await dans vos controllers
-module.exports = pool.promise();
+module.exports = pool.promise(); // Permet d'utiliser async/await (plus moderne)
