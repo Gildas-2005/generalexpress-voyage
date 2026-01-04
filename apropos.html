@@ -3,83 +3,580 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos | Général Express Voyages</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>À propos | Général Express</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/apropos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <header class="main-header">
-        <nav class="navbar">
-            <a href="index.html" class="logo">Général<span>Express</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="reservations.html">Réservations</a></li>
-                <li><a href="horaires.html">Horaires</a></li>
-                <li><a href="apropos.html" class="active">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="header-right">
-                <a href="login.html" class="btn-login">Login</a>
-            </div>
-        </nav>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bus"></i>
+                <div>
+                    <h1>Général<span>Express</span></h1>
+                    <p class="tagline">Depuis 1998</p>
+                </div>
+            </a>
+            
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="reservations.html"><i class="fas fa-ticket-alt"></i> Réserver</a></li>
+                    <li><a href="horaires.html"><i class="fas fa-clock"></i> Horaires</a></li>
+                    <li><a href="apropos.html" class="active"><i class="fas fa-info-circle"></i> À propos</a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li><a href="login.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="about-page">
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
         <section class="about-hero">
-            <h1>Notre Histoire</h1>
-            <p>Le leader du transport interurbain au Cameroun depuis plus de 25 ans.</p>
+            <div class="hero-content">
+                <h1>Notre Histoire</h1>
+                <p class="lead">Depuis 1998, nous connectons le Cameroun avec passion, sécurité et excellence.</p>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>26+</h3>
+                    <p>Années d'expérience</p>
+                </div>
+                <div class="stat">
+                    <h3>15+</h3>
+                    <p>Destinations</p>
+                </div>
+                <div class="stat">
+                    <h3>50+</h3>
+                    <p>Bus modernes</p>
+                </div>
+                <div class="stat">
+                    <h3>2M+</h3>
+                    <p>Clients satisfaits</p>
+                </div>
+            </div>
         </section>
 
-        <section class="timeline-container">
-            <div class="intro-box">
-                <p>Fondée avec la vision de révolutionner le voyage par route, General Express Voyages a su s'imposer par sa rigueur et sa modernité.</p>
-            </div>
-
+        <!-- Timeline -->
+        <section class="timeline-section">
+            <h2 class="section-title">Notre parcours</h2>
+            
             <div class="timeline">
-                <div class="timeline-line"></div>
-
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content left">
-                        <span class="year">1998</span>
-                        <h3>Les Débuts</h3>
-                        <p>Lancement des activités à Bafoussam avec une flotte de 5 bus de 30 places.</p>
+                    <div class="timeline-year">1998</div>
+                    <div class="timeline-content">
+                        <h3>Fondation</h3>
+                        <p>Création de Général Express Voyages à Bafoussam avec 3 bus.</p>
                     </div>
                 </div>
-
+                
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right">
-                        <span class="year">2005</span>
-                        <h3>L'Essor</h3>
-                        <p>Ouverture des agences de Douala et Yaoundé. La flotte passe à 40 bus de luxe.</p>
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                        <h3>Modernisation</h3>
+                        <p>Renouvellement complet de la flotte avec des bus climatisés.</p>
                     </div>
                 </div>
-
+                
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content left">
-                        <span class="year">2012</span>
-                        <h3>Innovation VIP</h3>
-                        <p>Lancement des services VIP avec bus climatisés, toilettes à bord et WiFi gratuit.</p>
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-content">
+                        <h3>Expansion</h3>
+                        <p>Extension des services vers 13 villes du Cameroun.</p>
                     </div>
                 </div>
-
+                
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content right">
-                        <span class="year">2024</span>
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
                         <h3>Digitalisation</h3>
-                        <p>Mise en place de la réservation en ligne et du paiement via Mobile Money.</p>
+                        <p>Lancement de la plateforme de réservation en ligne.</p>
                     </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Innovation</h3>
+                        <p>Intégration des paiements mobiles et service VIP.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section class="values-section">
+            <h2 class="section-title">Nos Valeurs</h2>
+            <p class="section-subtitle">Les principes qui guident chacune de nos actions</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Sécurité</h3>
+                    <p>La sécurité de nos passagers est notre priorité absolue. Tous nos bus sont régulièrement contrôlés.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Ponctualité</h3>
+                    <p>Nous respectons scrupuleusement nos horaires pour garantir vos correspondances.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Confort</h3>
+                    <p>Bus climatisés, sièges inclinables, WiFi gratuit pour un voyage agréable.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Service Client</h3>
+                    <p>Une équipe dévouée disponible 24/7 pour répondre à tous vos besoins.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Nous visons l'excellence dans chaque aspect de notre service.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Toujours à la pointe de la technologie pour améliorer votre expérience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="team-section">
+            <h2 class="section-title">Notre Équipe</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Gildas Ngoumkwe</h3>
+                    <p class="position">Fondateur & PDG</p>
+                    <p class="bio">Plus de 30 ans d'expérience dans le transport.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Directeur Exploitation</h3>
+                    <p class="position">Directeur des Opérations</p>
+                    <p class="bio">Gestion de la flotte et de la sécurité.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Service Client</h3>
+                    <p class="position">Responsable Service Client</p>
+                    <p class="bio">À votre écoute 24h/24 et 7j/7.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section class="awards-section">
+            <h2 class="section-title">Nos Reconnaissances</h2>
+            
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Meilleure Agence 2023</h3>
+                    <p>Prix de l'excellence du transport interurbain</p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-shield"></i>
+                    </div>
+                    <h3>Certification Sécurité</h3>
+                    <p>Certifié ISO 39001:2012</p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Service Client Étoile</h3>
+                    <p>4.9/5 sur TrustPilot</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Prêt à voyager avec nous ?</h2>
+                <p>Rejoignez les millions de clients qui nous font confiance.</p>
+                <div class="cta-buttons">
+                    <a href="reservations.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-ticket-alt"></i>
+                        Réserver maintenant
+                    </a>
+                    <a href="contact.html" class="btn btn-outline btn-lg">
+                        <i class="fas fa-phone"></i>
+                        Nous contacter
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="assets/js/apropos.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Copier le footer de index.html -->
+    </footer>
+
+    <script src="js/app.js"></script>
+    <style>
+        /* Styles spécifiques pour apropos.html */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-12) var(--space-8);
+            text-align: center;
+            margin-bottom: var(--space-12);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80') center/cover;
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: var(--space-8);
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: var(--space-4);
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-6);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--space-1);
+        }
+        
+        .stat p {
+            opacity: 0.8;
+            font-size: 0.875rem;
+        }
+        
+        .timeline-section {
+            margin-bottom: var(--space-12);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: var(--space-8) auto 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: var(--space-8);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-year {
+            flex: 0 0 120px;
+            background: var(--primary);
+            color: var(--white);
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-full);
+            text-align: center;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            margin: 0 var(--space-4);
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .timeline-content h3 {
+            color: var(--gray-900);
+            margin-bottom: var(--space-2);
+        }
+        
+        .values-section {
+            margin-bottom: var(--space-12);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-600);
+            margin-bottom: var(--space-8);
+            font-size: 1.125rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: var(--space-8) var(--space-6);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            transition: var(--transition-normal);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .value-card h3 {
+            margin-bottom: var(--space-3);
+            color: var(--gray-900);
+        }
+        
+        .team-section {
+            margin-bottom: var(--space-12);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-8);
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: var(--space-6);
+        }
+        
+        .member-avatar {
+            font-size: 4rem;
+            color: var(--gray-400);
+            margin-bottom: var(--space-4);
+        }
+        
+        .team-member h3 {
+            color: var(--gray-900);
+            margin-bottom: var(--space-1);
+        }
+        
+        .position {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: var(--space-3);
+        }
+        
+        .bio {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+        
+        .awards-section {
+            margin-bottom: var(--space-12);
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+        }
+        
+        .award-card {
+            text-align: center;
+            padding: var(--space-6);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .award-icon {
+            font-size: 3rem;
+            color: var(--warning);
+            margin-bottom: var(--space-4);
+        }
+        
+        .award-card h3 {
+            color: var(--gray-900);
+            margin-bottom: var(--space-2);
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-12) var(--space-8);
+            text-align: center;
+            margin-bottom: var(--space-12);
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-4);
+        }
+        
+        .cta-content p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: var(--space-8) var(--space-4);
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+                margin-left: 60px;
+            }
+            
+            .timeline-year {
+                position: absolute;
+                left: -90px;
+                top: 0;
+                margin: 0;
+                width: 60px;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </body>
 </html>

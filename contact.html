@@ -3,87 +3,843 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactez-nous | Général Express</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Contact | Général Express</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
-
-    <header class="main-header">
-        <nav class="navbar">
-            <a href="index.html" class="logo">Général<span>Express</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="reservations.html">Réservations</a></li>
-                <li><a href="horaires.html">Horaires</a></li>
-                <li><a href="apropos.html">À propos</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-            <div class="header-right">
-                <a href="login.html" class="btn-login">Login</a>
-            </div>
-        </nav>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bus"></i>
+                <div>
+                    <h1>Général<span>Express</span></h1>
+                    <p class="tagline">Depuis 1998</p>
+                </div>
+            </a>
+            
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="reservations.html"><i class="fas fa-ticket-alt"></i> Réserver</a></li>
+                    <li><a href="horaires.html"><i class="fas fa-clock"></i> Horaires</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
+                    <li><a href="contact.html" class="active"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li><a href="login.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="contact-page">
-        <section class="contact-hero">
-            <h1>Besoin d'aide ?</h1>
-            <p>Nos équipes sont à votre écoute 24h/24 pour vous accompagner dans vos voyages.</p>
+    <!-- Main Content -->
+    <main class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-phone"></i> Contactez-nous</h1>
+            <p>Nous sommes à votre écoute 24h/24 et 7j/7</p>
+        </div>
+
+        <!-- Contact Grid -->
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <h2>Envoyez-nous un message</h2>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet *</label>
+                            <select id="subject" required>
+                                <option value="">Choisir un sujet</option>
+                                <option value="reservation">Réservation</option>
+                                <option value="annulation">Annulation</option>
+                                <option value="reclamation">Réclamation</option>
+                                <option value="information">Information</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" rows="6" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" required>
+                            <span>J'accepte que mes données soient utilisées pour répondre à ma demande</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Envoyer le message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info-section">
+                <div class="info-card">
+                    <h3>Informations de contact</h3>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Téléphone</h4>
+                                <a href="tel:+237699999999">+237 6 99 99 99 99</a>
+                                <p>Support 24h/24 et 7j/7</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Email</h4>
+                                <a href="mailto:contact@generalexpress.cm">contact@generalexpress.cm</a>
+                                <p>Réponse sous 24h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Horaires d'ouverture</h4>
+                                <p>Lundi - Vendredi: 6h - 22h</p>
+                                <p>Samedi - Dimanche: 7h - 20h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Support urgent</h4>
+                                <a href="tel:+237677777777">+237 6 77 77 77 77</a>
+                                <p>Problèmes urgents uniquement</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>Suivez-nous</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agencies Map -->
+        <section class="agencies-section">
+            <h2>Nos agences au Cameroun</h2>
+            <p>Retrouvez nos 16 agences à travers le pays</p>
+            
+            <div class="agencies-container">
+                <!-- Map Container -->
+                <div class="map-container" id="map">
+                    <!-- Map will be loaded here -->
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p>Carte en cours de chargement...</p>
+                    </div>
+                </div>
+                
+                <!-- Agencies List -->
+                <div class="agencies-list">
+                    <div class="agencies-search">
+                        <input type="text" placeholder="Rechercher une ville..." id="agencySearch">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <div class="agencies-scroll" id="agenciesList">
+                        <!-- Agencies loaded dynamically -->
+                        <div class="loading">Chargement des agences...</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <div class="contact-wrapper">
-            <aside class="contact-info">
-                <div class="info-card">
-                    <i class="fas fa-phone-alt"></i>
-                    <h3>Téléphone</h3>
-                    <p>+237 677 00 00 00</p>
-                    <p>+237 699 00 00 00</p>
+        <!-- FAQ -->
+        <section class="faq-section">
+            <h2>Questions fréquentes</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment annuler une réservation ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Connectez-vous à votre espace client, allez dans "Mes réservations" et sélectionnez "Annuler". Les annulations sont possibles jusqu'à 24h avant le départ avec remboursement intégral.</p>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>contact@generalexpress.cm</p>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Que faire si je rate mon bus ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Contactez immédiatement notre service client au +237 6 99 99 99 99. Nous vous réserverons une place sur le prochain bus disponible, sous réserve de places.</p>
+                    </div>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Siège Social</h3>
-                    <p>Agence Mvan, Yaoundé, Cameroun</p>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Puis-je modifier ma réservation ?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, vous pouvez modifier la date ou l'horaire jusqu'à 12h avant le départ. Des frais de modification peuvent s'appliquer.</p>
+                    </div>
                 </div>
-            </aside>
-
-            <section class="contact-form-container">
-                <form id="contactForm">
-                    <h2>Envoyez-nous un message</h2>
-                    <div class="form-group">
-                        <label>Nom complet</label>
-                        <input type="text" id="name" placeholder="Ex: Jean Dupont" required>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Comment recevoir mon billet ?</h3>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" id="email" placeholder="Ex: jean@mail.com" required>
+                    <div class="faq-answer">
+                        <p>Votre e-billet est disponible dans votre espace client et envoyé par email/SMS après paiement. Vous pouvez aussi le récupérer en agence.</p>
                     </div>
-                    <div class="form-group">
-                        <label>Sujet</label>
-                        <select id="subject">
-                            <option value="reservation">Problème de réservation</option>
-                            <option value="colis">Suivi de colis</option>
-                            <option value="plainte">Réclamation</option>
-                            <option value="autre">Autre</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea id="message" rows="5" placeholder="Votre message ici..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Envoyer le message</button>
-                    <div id="formStatus"></div>
-                </form>
-            </section>
-        </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="assets/js/contact.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Copier le footer de index.html -->
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <!-- Leaflet JS for Maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        const API_URL = 'https://generalexpress-voyage-api.onrender.com/api';
+        
+        // Navigation mobile
+        document.querySelector('.nav-toggle')?.addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Contact form
+        document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            try {
+                // Simulation d'envoi - À remplacer par un vrai appel API
+                showToast('Envoi du message en cours...', 'info');
+                
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Réinitialiser le formulaire
+                this.reset();
+                showToast('Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.', 'success');
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                showToast('Erreur lors de l\'envoi du message', 'error');
+            }
+        });
+        
+        // Load agencies
+        async function loadAgencies() {
+            try {
+                const response = await fetch(`${API_URL}/agencies`);
+                const agencies = await response.json();
+                displayAgencies(agencies);
+                initMap(agencies);
+            } catch (error) {
+                console.error('Erreur de chargement:', error);
+                document.getElementById('agenciesList').innerHTML = `
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Erreur de chargement des agences
+                    </div>
+                `;
+            }
+        }
+        
+        function displayAgencies(agencies) {
+            const container = document.getElementById('agenciesList');
+            
+            if (agencies.length === 0) {
+                container.innerHTML = `
+                    <div class="empty">
+                        <i class="fas fa-store-slash"></i>
+                        Aucune agence disponible
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = agencies.map(agency => `
+                <div class="agency-card" data-id="${agency.id}" data-lat="${agency.latitude}" data-lng="${agency.longitude}">
+                    <div class="agency-header">
+                        <h4>${agency.city}</h4>
+                        <span class="badge ${agency.status}">${agency.status === 'open' ? 'Ouvert' : 'Fermé'}</span>
+                    </div>
+                    <div class="agency-body">
+                        <p><i class="fas fa-map-marker-alt"></i> ${agency.address}</p>
+                        <p><i class="fas fa-phone"></i> ${agency.phone}</p>
+                        <p><i class="fas fa-clock"></i> ${agency.schedule}</p>
+                    </div>
+                    <div class="agency-footer">
+                        <button class="btn btn-sm btn-outline" onclick="showAgencyOnMap(${agency.latitude}, ${agency.longitude})">
+                            <i class="fas fa-map-pin"></i>
+                        </button>
+                        <a href="tel:${agency.phone}" class="btn btn-sm btn-primary">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Search functionality
+            document.getElementById('agencySearch')?.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const cards = document.querySelectorAll('.agency-card');
+                
+                cards.forEach(card => {
+                    const city = card.querySelector('h4').textContent.toLowerCase();
+                    const address = card.querySelector('.agency-body p').textContent.toLowerCase();
+                    
+                    if (city.includes(searchTerm) || address.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+        
+        let map;
+        let markers = [];
+        
+        function initMap(agencies) {
+            // Center map on Cameroon
+            map = L.map('map').setView([5.5, 12.5], 6);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            // Add markers for each agency
+            agencies.forEach(agency => {
+                const marker = L.marker([agency.latitude, agency.longitude])
+                    .addTo(map)
+                    .bindPopup(`
+                        <strong>${agency.city}</strong><br>
+                        ${agency.address}<br>
+                        ${agency.phone}<br>
+                        <em>${agency.schedule}</em>
+                    `);
+                
+                markers.push(marker);
+            });
+            
+            // Remove placeholder
+            document.querySelector('.map-placeholder').style.display = 'none';
+        }
+        
+        function showAgencyOnMap(lat, lng) {
+            map.setView([lat, lng], 13);
+            
+            // Open popup for this marker
+            markers.forEach(marker => {
+                if (marker.getLatLng().lat === lat && marker.getLatLng().lng === lng) {
+                    marker.openPopup();
+                }
+            });
+        }
+        
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = question.nextElementSibling;
+                
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                        otherItem.querySelector('.faq-question i').className = 'fas fa-chevron-down';
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+                if (item.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    question.querySelector('i').className = 'fas fa-chevron-up';
+                } else {
+                    answer.style.maxHeight = null;
+                    question.querySelector('i').className = 'fas fa-chevron-down';
+                }
+            });
+        });
+        
+        // Toast function
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer') || createToastContainer();
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 5000);
+        }
+        
+        function createToastContainer() {
+            const container = document.createElement('div');
+            container.id = 'toastContainer';
+            document.body.appendChild(container);
+            return container;
+        }
+        
+        // Initial load
+        document.addEventListener('DOMContentLoaded', loadAgencies);
+    </script>
+    
+    <style>
+        /* Styles spécifiques pour contact.html */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-8);
+            margin-bottom: var(--space-12);
+        }
+        
+        .contact-form-section, .contact-info-section {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .contact-form-section h2, .contact-info-section h3 {
+            margin-bottom: var(--space-6);
+            color: var(--gray-900);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-4);
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: var(--space-2);
+            color: var(--gray-700);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--space-3);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+        
+        .checkbox input {
+            margin-top: 0.25rem;
+        }
+        
+        .info-card {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+        
+        .contact-method {
+            display: flex;
+            gap: var(--space-4);
+            align-items: flex-start;
+        }
+        
+        .method-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .method-info h4 {
+            margin-bottom: var(--space-1);
+            color: var(--gray-900);
+        }
+        
+        .method-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            margin-bottom: var(--space-1);
+        }
+        
+        .method-info p {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+        
+        .social-links h4 {
+            margin-bottom: var(--space-3);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        .social-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .agencies-section {
+            margin-bottom: var(--space-12);
+        }
+        
+        .agencies-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-6);
+            margin-top: var(--space-6);
+            height: 500px;
+        }
+        
+        .map-container {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            position: relative;
+        }
+        
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .map-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gray-100);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-600);
+        }
+        
+        .map-placeholder i {
+            font-size: 3rem;
+            margin-bottom: var(--space-4);
+        }
+        
+        .agencies-list {
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .agencies-search {
+            position: relative;
+            padding: var(--space-4);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .agencies-search input {
+            width: 100%;
+            padding: var(--space-3) var(--space-3) var(--space-3) var(--space-10);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+        }
+        
+        .agencies-search i {
+            position: absolute;
+            left: var(--space-6);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-500);
+        }
+        
+        .agencies-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: var(--space-4);
+        }
+        
+        .agency-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+        
+        .agency-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-3);
+        }
+        
+        .agency-header h4 {
+            color: var(--gray-900);
+        }
+        
+        .badge.open {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+        
+        .badge.closed {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+        
+        .agency-body p {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-2);
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+        
+        .agency-footer {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-3);
+        }
+        
+        .btn-sm {
+            padding: var(--space-2) var(--space-3);
+            font-size: 0.75rem;
+        }
+        
+        .faq-section {
+            margin-bottom: var(--space-12);
+        }
+        
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+        }
+        
+        .faq-item {
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: var(--space-4) var(--space-6);
+            background: var(--gray-50);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-question h3 {
+            color: var(--gray-900);
+            font-size: 1.125rem;
+        }
+        
+        .faq-answer {
+            padding: 0 var(--space-6);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: var(--space-6);
+            max-height: 200px;
+        }
+        
+        .faq-answer p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+        
+        .loading, .error, .empty {
+            text-align: center;
+            padding: var(--space-8);
+            color: var(--gray-600);
+        }
+        
+        .loading i, .error i, .empty i {
+            font-size: 2rem;
+            margin-bottom: var(--space-3);
+            display: block;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .agencies-container {
+                grid-template-columns: 1fr;
+                height: 800px;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form-section, .contact-info-section {
+                padding: var(--space-6);
+            }
+            
+            .faq-question {
+                padding: var(--space-4);
+            }
+            
+            .faq-question h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </body>
 </html>

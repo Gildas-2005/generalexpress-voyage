@@ -3,69 +3,496 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Général Express | Accueil</title>
+    <title>Général Express | Transport Interurbain Cameroun</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Réservez vos voyages en bus en 3 clics. Yaoundé, Douala, Bafoussam et toutes les villes du Cameroun. Bus climatisés, WiFi gratuit, assurance incluse.">
+    <meta name="keywords" content="bus Cameroun, voyage Yaoundé Douala, transport interurbain, réservation bus, Général Express">
+    <meta name="author" content="Général Express">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Général Express | Voyagez en sécurité">
+    <meta property="og:description" content="Réservez vos voyages en bus en 3 clics. Transport sécurisé et confortable.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://general-express.vercel.app">
+    <meta property="og:type" content="website">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚌</text></svg>">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1a3a6c">
 </head>
 <body>
-
-    <header class="main-header">
-        <nav class="navbar">
-            <div class="logo">Général<span>Express</span></div>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Accueil</a></li>
-                <li><a href="#">Réservations</a></li>
-                <li><a href="#">Horaires</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="nav-right">
-                <button class="btn-login">Login</button>
-            </div>
-        </nav>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bus"></i>
+                <div>
+                    <h1>Général<span>Express</span></h1>
+                    <p class="tagline">Depuis 1998</p>
+                </div>
+            </a>
+            
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="reservations.html"><i class="fas fa-ticket-alt"></i> Réserver</a></li>
+                    <li><a href="horaires.html"><i class="fas fa-clock"></i> Horaires</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li><a href="login.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Réservez votre voyage en 3 clics</h1>
-            <p>Yaoundé ~ Douala ~ Bafoussam - Départs quotidiens</p>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span><i class="fas fa-shield-alt"></i> Voyagez Sécurisé</span>
+                </div>
+                
+                <h2>Réservez votre voyage en 3 clics</h2>
+                <p class="subtitle">Yaoundé ~ Douala ~ Bafoussam ~ Départs quotidiens</p>
+                
+                <!-- Booking Widget -->
+                <div class="booking-widget">
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="origin">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Origine
+                                </label>
+                                <select id="origin" required>
+                                    <option value="">Ville de départ</option>
+                                    <option value="yaounde">Yaoundé</option>
+                                    <option value="douala">Douala</option>
+                                    <option value="bafoussam">Bafoussam</option>
+                                    <option value="garoua">Garoua</option>
+                                    <option value="dschang">Dschang</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="destination">
+                                    <i class="fas fa-flag-checkered"></i>
+                                    Destination
+                                </label>
+                                <select id="destination" required>
+                                    <option value="">Ville d'arrivée</option>
+                                    <option value="douala">Douala</option>
+                                    <option value="yaounde">Yaoundé</option>
+                                    <option value="bafoussam">Bafoussam</option>
+                                    <option value="garoua">Garoua</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="date">
+                                    <i class="fas fa-calendar"></i>
+                                    Date
+                                </label>
+                                <input type="date" id="date" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="passengers">
+                                    <i class="fas fa-users"></i>
+                                    Passagers
+                                </label>
+                                <div class="passenger-selector">
+                                    <button type="button" class="passenger-btn minus" aria-label="Diminuer">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <input type="number" id="passengers" value="1" min="1" max="10" readonly>
+                                    <button type="button" class="passenger-btn plus" aria-label="Augmenter">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-search"></i>
+                            Rechercher
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-route"></i>
+                    <h3>500+</h3>
+                    <p>Voyages/semaine</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-store"></i>
+                    <h3>16</h3>
+                    <p>Agences</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-smile"></i>
+                    <h3>99%</h3>
+                    <p>Satisfaction</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>1000+</h3>
+                    <p>Passagers/jour</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations -->
+    <section class="destinations">
+        <div class="container">
+            <h2 class="section-title">Destinations populaires</h2>
             
-            <div class="search-box">
-                <div class="row-1">
-                    <select><option>[Origine]</option></select>
-                    <select><option>Destination</option></select>
-                    <input type="date">
-                    <select><option>Passagers</option></select>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="card-header">
+                        <h3>Yaoundé → Douala</h3>
+                        <span class="badge">Populaire</span>
+                    </div>
+                    <div class="card-body">
+                        <p><i class="fas fa-clock"></i> Durée: <strong>5h</strong></p>
+                        <p><i class="fas fa-calendar"></i> Départs: <strong>15/jour</strong></p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="pricing">
+                            <div class="price">
+                                <span>Classique</span>
+                                <strong>13 000 FCFA</strong>
+                            </div>
+                            <div class="price vip">
+                                <span>VIP</span>
+                                <strong>20 000 FCFA</strong>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" data-route="yaounde-douala">
+                            <i class="fas fa-ticket-alt"></i>
+                            Réserver
+                        </button>
+                    </div>
                 </div>
-                <div class="row-2">
-                    <input type="text" placeholder="Réserver maintenant">
-                    <button class="btn-search">Rechercher</button>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <h3>Douala → Bafoussam</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><i class="fas fa-clock"></i> Durée: <strong>6h</strong></p>
+                        <p><i class="fas fa-calendar"></i> Départs: <strong>8/jour</strong></p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="pricing">
+                            <div class="price">
+                                <span>Classique</span>
+                                <strong>18 840 FCFA</strong>
+                            </div>
+                            <div class="price vip">
+                                <span>VIP</span>
+                                <strong>25 000 FCFA</strong>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" data-route="douala-bafoussam">
+                            <i class="fas fa-ticket-alt"></i>
+                            Réserver
+                        </button>
+                    </div>
                 </div>
-            </div>
-
-            <div class="badges">
-                <span class="badge">500+ voyages/semaine</span>
-                <span class="badge">16 agences</span>
-                <span class="badge">99% satisfaction</span>
+                
+                <div class="destination-card">
+                    <div class="card-header">
+                        <h3>Yaoundé → Bafoussam</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><i class="fas fa-clock"></i> Durée: <strong>4h</strong></p>
+                        <p><i class="fas fa-calendar"></i> Départs: <strong>10/jour</strong></p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="pricing">
+                            <div class="price">
+                                <span>Classique</span>
+                                <strong>15 000 FCFA</strong>
+                            </div>
+                            <div class="price vip">
+                                <span>VIP</span>
+                                <strong>22 000 FCFA</strong>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" data-route="yaounde-bafoussam">
+                            <i class="fas fa-ticket-alt"></i>
+                            Réserver
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="popular">
-        <h2>Destinations populaires</h2>
-        <div class="grid" id="popular-container">
-            </div>
-    </section>
-
+    <!-- Features -->
     <section class="features">
-        <h2>Pourquoi Général Express</h2>
-        <div class="feat-grid">
-            <div class="item"><i class="fas fa-check-circle"></i><p>Bus climatisés 50 places</p></div>
-            <div class="item"><i class="fas fa-wifi"></i><p>WiFi gratuit + USB</p></div>
-            <div class="item"><i class="fas fa-shield-alt"></i><p>Assurance voyage incluse</p></div>
+        <div class="container">
+            <h2 class="section-title">Pourquoi Général Express</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <h3>Bus climatisés</h3>
+                    <p>50 places confortables avec climatisation</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>WiFi gratuit</h3>
+                    <p>Connexion haut débit + ports USB</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Assurance incluse</h3>
+                    <p>Voyagez l'esprit tranquille</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Support 24/7</h3>
+                    <p>Service client disponible à tout moment</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Ils nous font confiance</h2>
+            
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <blockquote>
+                    "Excellent service client. L'équipe est toujours disponible et à l'écoute. 
+                    Je me sens en sécurité avec Général Express."
+                </blockquote>
+                <div class="author">
+                    <strong>Emmanuel Fouda</strong>
+                    <span>Garoua</span>
+                </div>
+            </div>
+            
+            <div class="clients-count">
+                <h3>+2M de clients satisfaits</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-bus"></i>
+                        <div>
+                            <h3>Général<span>Express</span></h3>
+                            <p>Depuis 1998</p>
+                        </div>
+                    </div>
+                    <p class="description">
+                        Leader du transport interurbain au Cameroun. 
+                        Connectons vos destinations avec passion et sécurité.
+                    </p>
+                    <div class="social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="reservations.html">Réserver</a></li>
+                        <li><a href="horaires.html">Horaires</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="mes-reservations.html">Mes réservations</a></li>
+                        <li><a href="#">Conditions générales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">FAQ & Aide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+237 6XX XX XX XX</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@generalexpress.cm</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>16 agences au Cameroun</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="payment-methods">
+                        <span>Paiements acceptés:</span>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa" title="Visa"></i>
+                            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                            <i class="fas fa-mobile-alt" title="Mobile Money"></i>
+                            <span class="flutterwave">Flutterwave</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 1998-<span id="currentYear"></span> Général Express. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <script src="js/api.js"></script>
+    
+    <script>
+        // Current year for footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Set min date to today
+        const dateInput = document.getElementById('date');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            dateInput.value = today;
+        }
+        
+        // Passenger selector
+        document.querySelectorAll('.passenger-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = document.getElementById('passengers');
+                let value = parseInt(input.value);
+                
+                if (this.classList.contains('plus') && value < 10) {
+                    value++;
+                } else if (this.classList.contains('minus') && value > 1) {
+                    value--;
+                }
+                
+                input.value = value;
+            });
+        });
+        
+        // Booking form submission
+        document.getElementById('bookingForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const origin = document.getElementById('origin').value;
+            const destination = document.getElementById('destination').value;
+            
+            if (!origin || !destination) {
+                showToast('Veuillez sélectionner une origine et une destination', 'error');
+                return;
+            }
+            
+            if (origin === destination) {
+                showToast('L\'origine et la destination doivent être différentes', 'error');
+                return;
+            }
+            
+            // Redirect to reservations page with search params
+            window.location.href = `reservations.html?from=${origin}&to=${destination}`;
+        });
+        
+        // Destination card buttons
+        document.querySelectorAll('[data-route]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const route = this.dataset.route;
+                window.location.href = `reservations.html?route=${route}`;
+            });
+        });
+        
+        // Toast function
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 5000);
+        }
+    </script>
 </body>
 </html>

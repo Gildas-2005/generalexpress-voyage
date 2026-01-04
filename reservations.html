@@ -3,77 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réservations | Général Express</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Réserver un voyage | Général Express</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/reservations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <header class="main-header">
-        <nav class="navbar">
-            <a href="index.html" class="logo">Général<span>Express</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="reservations.html" class="active">Réservations</a></li>
-                <li><a href="horaires.html">Horaires</a></li>
-                <li><a href="apropos.html">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="header-right" id="nav-auth">
-                <a href="login.html" class="btn-login">Login</a>
-            </div>
-        </nav>
+    <!-- Navigation (identique à index.html) -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bus"></i>
+                <div>
+                    <h1>Général<span>Express</span></h1>
+                    <p class="tagline">Depuis 1998</p>
+                </div>
+            </a>
+            
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="reservations.html" class="active"><i class="fas fa-ticket-alt"></i> Réserver</a></li>
+                    <li><a href="horaires.html"><i class="fas fa-clock"></i> Horaires</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li><a href="login.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="res-page">
-        <section class="booking-filter">
-            <div class="filter-container">
-                <div class="filter-group">
-                    <label><i class="fas fa-map-marker-alt"></i> Départ</label>
-                    <select id="origin"><option>Yaoundé</option><option>Douala</option><option>Bafoussam</option></select>
-                </div>
-                <div class="filter-group">
-                    <label><i class="fas fa-location-arrow"></i> Arrivée</label>
-                    <select id="destination"><option>Douala</option><option>Yaoundé</option><option>Kribi</option></select>
-                </div>
-                <div class="filter-group">
-                    <label><i class="fas fa-calendar-alt"></i> Date</label>
-                    <input type="date" id="travelDate">
-                </div>
-                <button class="btn-find" onclick="searchBuses()">Rechercher</button>
-            </div>
-        </section>
-
-        <section class="results-section">
-            <div id="bus-results" class="results-grid">
-                <div class="info-msg">Veuillez sélectionner votre trajet pour voir les bus disponibles.</div>
-            </div>
-        </section>
-
-        <div id="ticketModal" class="modal">
-            <div class="ticket-box">
-                <span class="close" onclick="closeTicket()">&times;</span>
-                <div class="ticket-header">
-                    <h2>Votre Billet Digital</h2>
-                    <p>Général Express Voyages</p>
-                </div>
-                <div class="ticket-body">
-                    <div class="ticket-info">
-                        <p><strong>Passager :</strong> <span id="t-name">Gildas Ngoumkwe</span></p>
-                        <p><strong>Trajet :</strong> <span id="t-route">---</span></p>
-                        <p><strong>Siège :</strong> #14 (VIP)</p>
-                    </div>
-                    <div class="qr-zone">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BilletValide" alt="QR Code">
-                    </div>
-                </div>
-                <button class="btn-download" onclick="window.print()">Télécharger (PDF)</button>
-            </div>
+    <!-- Main Content -->
+    <main class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-ticket-alt"></i> Réserver un voyage</h1>
+            <p>Sélectionnez votre trajet et réservez en quelques clics</p>
         </div>
+        
+        <!-- Search Filters -->
+        <section class="search-filters">
+            <form id="tripSearchForm">
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label><i class="fas fa-map-marker-alt"></i> Origine</label>
+                        <select id="filterOrigin">
+                            <option value="">Toutes les villes</option>
+                            <option value="yaounde">Yaoundé</option>
+                            <option value="douala">Douala</option>
+                            <option value="bafoussam">Bafoussam</option>
+                            <option value="garoua">Garoua</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label><i class="fas fa-flag-checkered"></i> Destination</label>
+                        <select id="filterDestination">
+                            <option value="">Toutes les villes</option>
+                            <option value="douala">Douala</option>
+                            <option value="yaounde">Yaoundé</option>
+                            <option value="bafoussam">Bafoussam</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label><i class="fas fa-calendar"></i> Date</label>
+                        <input type="date" id="filterDate">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label><i class="fas fa-filter"></i> Type</label>
+                        <select id="filterType">
+                            <option value="">Tous</option>
+                            <option value="classique">Classique</option>
+                            <option value="vip">VIP</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                    Rechercher
+                </button>
+            </form>
+        </section>
+        
+        <!-- Trips List -->
+        <section class="trips-section">
+            <h2>Voyages disponibles</h2>
+            
+            <div class="trips-list" id="tripsList">
+                <!-- Les voyages seront chargés dynamiquement -->
+                <div class="loading">Chargement des voyages...</div>
+            </div>
+        </section>
+        
+        <!-- Booking Steps -->
+        <section class="booking-steps">
+            <h2>Comment réserver ?</h2>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choisissez votre voyage</h3>
+                    <p>Sélectionnez l'itinéraire, la date et le type de place</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Remplissez vos informations</h3>
+                    <p>Entrez vos coordonnées et celles des passagers</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Payez en ligne</h3>
+                    <p>Paiement sécurisé par carte ou mobile money</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Recevez votre e-billet</h3>
+                    <p>Téléchargez votre billet ou recevez-le par SMS/email</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="assets/js/reservations.js"></script>
+    <!-- Footer (identique à index.html) -->
+    <footer class="footer">
+        <!-- Copier le footer de index.html -->
+    </footer>
+
+    <!-- Modal for booking -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Réserver ce voyage</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingDetailsForm">
+                    <!-- Rempli dynamiquement -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary modal-close">Annuler</button>
+                <button class="btn btn-primary" id="confirmBooking">Continuer vers le paiement</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <script src="js/reservations.js"></script>
+    
+    <script>
+        // Navigation mobile toggle
+        document.querySelector('.nav-toggle')?.addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.nav-menu');
+            const toggle = document.querySelector('.nav-toggle');
+            
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Set min date to today
+        const dateInput = document.getElementById('filterDate');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            dateInput.value = today;
+        }
+        
+        // Toast function
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 5000);
+        }
+    </script>
 </body>
 </html>

@@ -3,67 +3,726 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horaires des départs | Général Express</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Horaires & Tarifs | Général Express</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/horaires.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <header class="main-header">
-        <nav class="navbar">
-            <a href="index.html" class="logo">Général<span>Express</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="reservations.html">Réservations</a></li>
-                <li><a href="horaires.html" class="active">Horaires</a></li>
-                <li><a href="apropos.html">À propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="header-right">
-                <a href="login.html" class="btn-login">Login</a>
-            </div>
-        </nav>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bus"></i>
+                <div>
+                    <h1>Général<span>Express</span></h1>
+                    <p class="tagline">Depuis 1998</p>
+                </div>
+            </a>
+            
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="reservations.html"><i class="fas fa-ticket-alt"></i> Réserver</a></li>
+                    <li><a href="horaires.html" class="active"><i class="fas fa-clock"></i> Horaires</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-info-circle"></i> À propos</a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li><a href="login.html" class="btn-login"><i class="fas fa-user"></i> Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="schedule-page">
-        <section class="schedule-header">
-            <h1>Tableau des Départs</h1>
-            <p>Consultez les horaires de nos bus en temps réel pour toutes les destinations.</p>
+    <!-- Main Content -->
+    <main class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-clock"></i> Horaires & Tarifs</h1>
+            <p>Consultez les horaires et tarifs de tous nos voyages</p>
+        </div>
+
+        <!-- Search Bar -->
+        <section class="search-bar">
+            <div class="search-container">
+                <form id="scheduleSearchForm">
+                    <div class="search-grid">
+                        <div class="search-group">
+                            <label><i class="fas fa-map-marker-alt"></i> Départ</label>
+                            <select id="searchOrigin">
+                                <option value="">Toutes les villes</option>
+                                <option value="yaounde">Yaoundé</option>
+                                <option value="douala">Douala</option>
+                                <option value="bafoussam">Bafoussam</option>
+                                <option value="garoua">Garoua</option>
+                                <option value="dschang">Dschang</option>
+                                <option value="bamenda">Bamenda</option>
+                            </select>
+                        </div>
+                        
+                        <div class="search-group">
+                            <label><i class="fas fa-flag-checkered"></i> Arrivée</label>
+                            <select id="searchDestination">
+                                <option value="">Toutes les villes</option>
+                                <option value="douala">Douala</option>
+                                <option value="yaounde">Yaoundé</option>
+                                <option value="bafoussam">Bafoussam</option>
+                                <option value="garoua">Garoua</option>
+                                <option value="dschang">Dschang</option>
+                            </select>
+                        </div>
+                        
+                        <div class="search-group">
+                            <label><i class="fas fa-calendar"></i> Jour</label>
+                            <select id="searchDay">
+                                <option value="">Tous les jours</option>
+                                <option value="lundi">Lundi</option>
+                                <option value="mardi">Mardi</option>
+                                <option value="mercredi">Mercredi</option>
+                                <option value="jeudi">Jeudi</option>
+                                <option value="vendredi">Vendredi</option>
+                                <option value="samedi">Samedi</option>
+                                <option value="dimanche">Dimanche</option>
+                            </select>
+                        </div>
+                        
+                        <div class="search-group">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                                Rechercher
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </section>
 
-        <section class="table-container">
-            <div class="table-controls">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="scheduleSearch" placeholder="Rechercher une destination..." onkeyup="filterSchedule()">
+        <!-- Schedules Table -->
+        <section class="schedules-section">
+            <div class="section-header">
+                <h2>Horaires des voyages</h2>
+                <div class="actions">
+                    <button class="btn btn-outline" id="downloadSchedule">
+                        <i class="fas fa-download"></i>
+                        Télécharger PDF
+                    </button>
+                    <button class="btn btn-outline" id="printSchedule">
+                        <i class="fas fa-print"></i>
+                        Imprimer
+                    </button>
                 </div>
-                <div class="date-display" id="currentDate">-- / -- / ----</div>
             </div>
-
-            <div class="responsive-table">
-                <table class="modern-table">
+            
+            <div class="table-container">
+                <table class="schedules-table" id="schedulesTable">
                     <thead>
                         <tr>
+                            <th>Itinéraire</th>
                             <th>Départ</th>
-                            <th>Destination</th>
-                            <th>Heure</th>
-                            <th>Type</th>
-                            <th>Statut</th>
+                            <th>Arrivée</th>
+                            <th>Durée</th>
+                            <th>Fréquence</th>
+                            <th>Classique</th>
+                            <th>VIP</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="schedule-body">
+                    <tbody>
+                        <!-- Données chargées dynamiquement -->
                         <tr>
-                            <td colspan="6" class="loading-cell">Chargement des données...</td>
+                            <td colspan="8" class="loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                Chargement des horaires...
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            
+            <div class="table-info">
+                <div class="info-item">
+                    <span class="dot available"></span>
+                    <span>Disponible</span>
+                </div>
+                <div class="info-item">
+                    <span class="dot limited"></span>
+                    <span>Places limitées</span>
+                </div>
+                <div class="info-item">
+                    <span class="dot full"></span>
+                    <span>Complet</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Routes -->
+        <section class="popular-routes">
+            <h2>Trajets les plus fréquentés</h2>
+            
+            <div class="routes-grid">
+                <div class="route-card">
+                    <div class="route-header">
+                        <h3>Yaoundé ↔ Douala</h3>
+                        <span class="badge">15 départs/jour</span>
+                    </div>
+                    <div class="route-body">
+                        <div class="route-info">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Premier départ:</strong>
+                                <span>05:30</span>
+                            </div>
+                        </div>
+                        <div class="route-info">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Dernier départ:</strong>
+                                <span>22:00</span>
+                            </div>
+                        </div>
+                        <div class="route-info">
+                            <i class="fas fa-road"></i>
+                            <div>
+                                <strong>Fréquence:</strong>
+                                <span>Toutes les heures</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="route-footer">
+                        <div class="prices">
+                            <span class="price">À partir de 13 000 FCFA</span>
+                        </div>
+                        <button class="btn btn-outline" data-route="yaounde-douala">
+                            Voir les horaires
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Plus de cartes de trajets -->
+            </div>
+        </section>
+
+        <!-- Pricing Info -->
+        <section class="pricing-info">
+            <h2>Nos tarifs</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Classique</h3>
+                        <div class="price">À partir de 10 000 FCFA</div>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Siège confortable</li>
+                        <li><i class="fas fa-check"></i> Climatisation</li>
+                        <li><i class="fas fa-check"></i> Bagage 20kg inclus</li>
+                        <li><i class="fas fa-check"></i> Assurance voyage</li>
+                        <li><i class="fas fa-times"></i> WiFi gratuit</li>
+                        <li><i class="fas fa-times"></i> Service à bord</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>VIP</h3>
+                        <div class="price">À partir de 18 000 FCFA</div>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Siège premium inclinable</li>
+                        <li><i class="fas fa-check"></i> Climatisation individuelle</li>
+                        <li><i class="fas fa-check"></i> Bagage 30kg inclus</li>
+                        <li><i class="fas fa-check"></i> Assurance voyage étendue</li>
+                        <li><i class="fas fa-check"></i> WiFi haut débit + USB</li>
+                        <li><i class="fas fa-check"></i> Service à bord & collation</li>
+                    </ul>
+                    <div class="popular-tag">Populaire</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Notes -->
+        <section class="notes-section">
+            <div class="note-card">
+                <i class="fas fa-exclamation-circle"></i>
+                <div>
+                    <h3>Informations importantes</h3>
+                    <ul>
+                        <li>Présentez-vous à l'agence 30 minutes avant le départ</li>
+                        <li>Les billets sont nominatifs et non transférables</li>
+                        <li>Annulation possible jusqu'à 24h avant le départ</li>
+                        <li>Les enfants de moins de 5 ans voyagent gratuitement (1 par adulte)</li>
+                        <li>Tarifs étudiants disponibles sur présentation de carte</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
-    <script src="assets/js/horaires.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Copier le footer de index.html -->
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <script>
+        const API_URL = 'https://generalexpress-voyage-api.onrender.com/api';
+        
+        // Navigation mobile
+        document.querySelector('.nav-toggle')?.addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Load schedules
+        async function loadSchedules() {
+            try {
+                const response = await fetch(`${API_URL}/schedules`);
+                const schedules = await response.json();
+                displaySchedules(schedules);
+            } catch (error) {
+                console.error('Erreur de chargement:', error);
+                document.querySelector('#schedulesTable tbody').innerHTML = `
+                    <tr>
+                        <td colspan="8" class="error">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Erreur de chargement des horaires
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+        
+        function displaySchedules(schedules) {
+            const tbody = document.querySelector('#schedulesTable tbody');
+            
+            if (schedules.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" class="empty">
+                            <i class="fas fa-calendar-times"></i>
+                            Aucun horaire disponible
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            tbody.innerHTML = schedules.map(schedule => `
+                <tr class="${getAvailabilityClass(schedule.availability)}">
+                    <td>
+                        <strong>${schedule.origin} → ${schedule.destination}</strong>
+                    </td>
+                    <td>${schedule.departureTime}</td>
+                    <td>${schedule.arrivalTime}</td>
+                    <td>${schedule.duration}</td>
+                    <td>${schedule.frequency}</td>
+                    <td><strong>${schedule.priceClassic.toLocaleString()} FCFA</strong></td>
+                    <td><strong>${schedule.priceVIP?.toLocaleString() || '-'} FCFA</strong></td>
+                    <td>
+                        <button class="btn btn-sm btn-outline" onclick="bookSchedule('${schedule.id}')">
+                            <i class="fas fa-ticket-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function getAvailabilityClass(availability) {
+            switch(availability) {
+                case 'available': return 'available';
+                case 'limited': return 'limited';
+                case 'full': return 'full';
+                default: return '';
+            }
+        }
+        
+        function bookSchedule(scheduleId) {
+            // Rediriger vers la page de réservation avec l'ID
+            window.location.href = `reservations.html?schedule=${scheduleId}`;
+        }
+        
+        // Search functionality
+        document.getElementById('scheduleSearchForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            filterSchedules();
+        });
+        
+        function filterSchedules() {
+            const origin = document.getElementById('searchOrigin').value;
+            const destination = document.getElementById('searchDestination').value;
+            const day = document.getElementById('searchDay').value;
+            
+            // Filtrer côté client ou refaire un appel API
+            // Pour l'instant, recharge tout et filtre côté client
+            loadSchedules().then(() => {
+                const rows = document.querySelectorAll('#schedulesTable tbody tr');
+                rows.forEach(row => {
+                    const route = row.cells[0].textContent.toLowerCase();
+                    const showRow = (!origin || route.includes(origin)) &&
+                                   (!destination || route.includes(destination));
+                    row.style.display = showRow ? '' : 'none';
+                });
+            });
+        }
+        
+        // Download PDF
+        document.getElementById('downloadSchedule')?.addEventListener('click', function() {
+            showToast('Téléchargement en cours...', 'info');
+            // Simulation de téléchargement
+            setTimeout(() => {
+                showToast('Horaires téléchargés', 'success');
+            }, 1500);
+        });
+        
+        // Print
+        document.getElementById('printSchedule')?.addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Toast function
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer') || createToastContainer();
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 5000);
+        }
+        
+        function createToastContainer() {
+            const container = document.createElement('div');
+            container.id = 'toastContainer';
+            document.body.appendChild(container);
+            return container;
+        }
+        
+        // Initial load
+        document.addEventListener('DOMContentLoaded', loadSchedules);
+    </script>
+    
+    <style>
+        /* Styles spécifiques pour horaires.html */
+        .search-bar {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+        
+        .search-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+        }
+        
+        .search-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        
+        .search-group label {
+            font-weight: 500;
+            color: var(--gray-700);
+            font-size: 0.875rem;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .actions {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            margin-bottom: var(--space-6);
+        }
+        
+        .schedules-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .schedules-table th {
+            background: var(--gray-50);
+            padding: var(--space-4);
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .schedules-table td {
+            padding: var(--space-4);
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--gray-700);
+        }
+        
+        .schedules-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .schedules-table tbody tr:hover {
+            background: var(--gray-50);
+        }
+        
+        .schedules-table .available {
+            border-left: 4px solid var(--success);
+        }
+        
+        .schedules-table .limited {
+            border-left: 4px solid var(--warning);
+        }
+        
+        .schedules-table .full {
+            border-left: 4px solid var(--danger);
+        }
+        
+        .btn-sm {
+            padding: var(--space-2) var(--space-3);
+            font-size: 0.75rem;
+        }
+        
+        .table-info {
+            display: flex;
+            gap: var(--space-6);
+            justify-content: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot.available {
+            background: var(--success);
+        }
+        
+        .dot.limited {
+            background: var(--warning);
+        }
+        
+        .dot.full {
+            background: var(--danger);
+        }
+        
+        .popular-routes {
+            margin-bottom: var(--space-12);
+        }
+        
+        .routes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-6);
+        }
+        
+        .route-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+        }
+        
+        .route-header {
+            padding: var(--space-4) var(--space-6);
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .route-body {
+            padding: var(--space-6);
+        }
+        
+        .route-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+            color: var(--gray-600);
+        }
+        
+        .route-footer {
+            padding: var(--space-6);
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .pricing-info {
+            margin-bottom: var(--space-12);
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-6);
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: var(--space-6);
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-6);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: var(--space-2);
+        }
+        
+        .features {
+            list-style: none;
+        }
+        
+        .features li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+            color: var(--gray-700);
+        }
+        
+        .features .fa-check {
+            color: var(--success);
+        }
+        
+        .features .fa-times {
+            color: var(--danger);
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--white);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .notes-section {
+            margin-bottom: var(--space-12);
+        }
+        
+        .note-card {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            display: flex;
+            gap: var(--space-6);
+            align-items: flex-start;
+        }
+        
+        .note-card i {
+            font-size: 2rem;
+            color: var(--warning);
+            margin-top: var(--space-1);
+        }
+        
+        .note-card ul {
+            list-style: none;
+            margin-top: var(--space-3);
+        }
+        
+        .note-card li {
+            margin-bottom: var(--space-2);
+            color: var(--gray-700);
+        }
+        
+        .loading, .error, .empty {
+            text-align: center;
+            padding: var(--space-8) !important;
+            color: var(--gray-600);
+        }
+        
+        .loading i, .error i, .empty i {
+            font-size: 2rem;
+            margin-bottom: var(--space-3);
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-4);
+            }
+            
+            .search-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .routes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .note-card {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+        }
+    </style>
 </body>
 </html>
